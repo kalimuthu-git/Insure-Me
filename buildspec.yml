@@ -29,7 +29,7 @@ phases:
 
       # 📄 Create imagedefinitions.json (for ECS deployment)
       - echo Creating imagedefinitions.json...
-      - printf '[{"name":"sample-app","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      -- printf '[{"name":"insure-me-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 
 artifacts:
   files:
