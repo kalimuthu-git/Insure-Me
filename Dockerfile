@@ -1,21 +1,12 @@
-FROM python:3.10
+FROM python:3.11-slim
 
 WORKDIR /app
-COPY . /app
 
-RUN pip install -r requirements.txt
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
 
 EXPOSE 5000
 
-CMD ["python", "app.py"]
-
-
-# ================= HOW TO RUN =================
-# 1. Build Docker Image
-# docker build -t insure-me .
-
-# 2. Run Container
-# docker run -d -p 5000:5000 insure-me
-
-# 3. Open Browser
-# http://localhost:5000
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
