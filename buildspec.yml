@@ -17,7 +17,11 @@ phases:
     commands:
       - echo Build started on `date`
 
-      # 🚀 Build Docker image (directly with ECR tag)
+      # 🧪 Debug (optional but useful)
+      - echo "Files in directory:"
+      - ls -la
+
+      # 🚀 Build Docker image
       - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
 
   post_build:
@@ -27,9 +31,9 @@ phases:
       # 📦 Push image
       - docker push $REPOSITORY_URI:$IMAGE_TAG
 
-      # 📄 Create imagedefinitions.json (for ECS deployment)
+      # 📄 Create imagedefinitions.json for ECS
       - echo Creating imagedefinitions.json...
-      -- printf '[{"name":"insure-me-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"insure-me-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 
 artifacts:
   files:
