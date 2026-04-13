@@ -7,7 +7,7 @@ phases:
       - aws --version
 
       # 🔥 Set variables
-      - REPOSITORY_URI=212045812865.dkr.ecr.us-east-1.amazonaws.com/project/insure-me
+      - REPOSITORY_URI=212045812865.dkr.ecr.ap-south-1.amazonaws.com/project/insure-me:latest
       - IMAGE_TAG=latest
 
       # 🔐 Login to ECR
