@@ -25,6 +25,10 @@ with app.app_context():
 def home():
     return send_from_directory('.', 'index.html')
 
+@app.route('/')
+def home():
+    return "InsureMe Running 🚀"
+
 # Health check
 @app.route('/health')
 def health():
