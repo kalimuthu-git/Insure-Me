@@ -6,32 +6,27 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
 
-      # 🔥 Set variables
-      - REPOSITORY_URI=212045812865.dkr.ecr.ap-south-1.amazonaws.com/project/insure-me:latest
+      # Set variables
+      - REPOSITORY_URI=212045812865.dkr.ecr.ap-south-1.amazonaws.com/project/insure-me
       - IMAGE_TAG=latest
 
-      # 🔐 Login to ECR
+      # Login to ECR
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 212045812865.dkr.ecr.ap-south-1.amazonaws.com
 
   build:
     commands:
       - echo Build started on `date`
+      - echo Building Docker image...
+      - docker build -t project/insure-me .
 
-      # 🧪 Debug (optional but useful)
-      - echo "Files in directory:"
-      - ls -la
-
-      # 🚀 Build Docker image
-      - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
+      # Tag image correctly
+      - docker tag project/insure-me:latest $REPOSITORY_URI:$IMAGE_TAG
 
   post_build:
     commands:
-      - echo Pushing Docker image to ECR...
-
-      # 📦 Push image
+      - echo Pushing Docker image...
       - docker push $REPOSITORY_URI:$IMAGE_TAG
 
-      # 📄 Create imagedefinitions.json for ECS
       - echo Creating imagedefinitions.json...
       - printf '[{"name":"insure-me-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 
