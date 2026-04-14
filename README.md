@@ -1,4 +1,4 @@
-# 🛡️ InsureMe — Cloud-Native Insurance Management Application
+## 🛡️ InsureMe — Cloud-Native Insurance Management Application
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![Flask](https://img.shields.io/badge/Flask-REST%20API-lightgrey?logo=flask)
@@ -255,9 +255,23 @@ The pipeline will automatically:
 Application is accessible via the Load Balancer URL:
 
 ```
-http://insure-me-alb-207979398.us-east.elb.amazonaws.com/
+http://insure-me-alb-207979398.ap-south-1.elb.amazonaws.com/
 ```
 
+---
+
+## 📸 Screenshots
+
+### Application Deployed Successfully
+<img width="1918" height="1078" alt="deployed successfully" src="https://github.com/user-attachments/assets/e0e899ce-53c7-4b63-a844-f51419c59ad7" />
+
+### CI/CD Pipeline Success
+<img width="1918" height="1078" alt="deployed success" src="https://github.com/user-attachments/assets/8efd7aba-8555-4b7e-8187-222652fff49e" />
+
+### ECS Service Running
+<img width="1918" height="1078" alt="ECS-Running Status" src="https://github.com/user-attachments/assets/16a2a517-c4d3-4ae3-8fc7-b1edb9a3bf6f" />
+
+---
 ---
 
 ## 📝 Conclusion
@@ -270,5 +284,7 @@ InsureMe demonstrates a real-world DevOps pipeline using AWS services, providing
 - Cloud-native deployment with ECS Fargate
 
 ---
+
+
 
 > **Author:** Kalimuthu A | **Date:** 10th April 2026
