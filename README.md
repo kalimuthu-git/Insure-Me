@@ -126,7 +126,7 @@ insure-me/
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/insure-me.git
+git clone https://github.com/kalimuthu-git/insure-me.git
 cd insure-me
 
 # Install dependencies
@@ -156,9 +156,9 @@ docker run -p 5000:5000 insure-me
 |---|---|---|
 | `GET` | `/` | Frontend UI / Health check |
 | `POST` | `/policy` | Create a new insurance policy |
-| `GET` | `/policy/<id>` | View a specific policy |
-| `PUT` | `/policy/<id>` | Update an existing policy |
-| `DELETE` | `/policy/<id>` | Delete a policy |
+| `GET` | `/policy/1` | View a specific policy |
+| `PUT` | `/policy/2` | Update an existing policy |
+| `DELETE` | `/policy/3` | Delete a policy |
 
 ---
 
